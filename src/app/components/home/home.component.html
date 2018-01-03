@@ -1,5 +1,6 @@
 <div id="top-headline" class="row">
     <div class="col-md-6">
+      <span *ngIf="errorMsg.msg" style="color: red">{{errorMsg.msg}}</span>
       <form (ngSubmit)="onSubmit()" class="form-horizontal">
       <fieldset>
 

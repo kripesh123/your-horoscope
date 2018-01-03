@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   personalityReports: any[];
   spiritualLesson: any;
   keyQuality: any;
+  errorMsg = {'status': '', 'msg': ''};
   constructor(private horoscropeService: HoroscropeService) {
   }
   ngOnInit() {
@@ -29,10 +30,19 @@ export class HomeComponent implements OnInit {
   onSubmit() {
     this.horoscropeService.getPersonalityReport(this.model).subscribe(
       data => {
+        this.errorMsg.msg = '';
         this.personalityReports = data.report;
         this.spiritualLesson = data.spiritual_lesson;
         this.keyQuality = data.key_quality;
-    });
+      },
+      error => {
+        if(error.status === 500) {
+          this.errorMsg.msg = 'Internal Server Error';
+        }else{
+          this.errorMsg = JSON.parse(JSON.parse(JSON.stringify(error._body)));
+        }
+      }
+    );
   }
 
 }
