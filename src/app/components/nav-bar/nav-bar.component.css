@@ -1,0 +1,11 @@
+.container-fluid{
+    background-color: rgba(190, 131, 55, 0.616);
+    text-decoration-color: rgb(197, 103, 103);
+    flex: 20%;
+    text-align:right; 
+}
+ .container-fluid>p
+ {
+    text-align:right;     
+ } 
+ 
