@@ -1,0 +1,75 @@
+<div id="top-headline" class="row">
+  <div class="col-md-6">
+    <span *ngIf="errorMsg.msg" style="color: red">{{errorMsg.msg}}</span>
+    <form (ngSubmit)="onSubmit()" class="form-horizontal">
+      <fieldset>
+
+        <!-- Form Name -->
+        <legend>General Sign Report</legend>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="textinput">Day:</label>
+          <div class="col-md-4">
+            <input id="textinput" [(ngModel)]="model.day" name="day" type="number" placeholder="Day" class="form-control input-md" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="textinput">Month:</label>
+          <div class="col-md-4">
+            <input id="textinput" [(ngModel)]="model.month" name="month" type="number" placeholder="Month" class="form-control input-md">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="textinput">Year:</label>
+          <div class="col-md-4">
+            <input id="textinput" [(ngModel)]="model.year" name="year" type="number" placeholder="Year" class="form-control input-md">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="textinput">Hours (24 hrs) :</label>
+          <div class="col-md-4">
+            <input id="textinput" [(ngModel)]="model.hour" name="hour" type="number" placeholder="Hours" class="form-control input-md">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="textinput">Minutes:</label>
+          <div class="col-md-4">
+            <input id="textinput" [(ngModel)]="model.min" name="min" type="number" placeholder="Minutes" class="form-control input-md">
+          </div>
+        </div>
+        <!-- Select Basic -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="selectbasic">Select Planet Name:</label>
+          <div class="col-md-4">
+            <select  [(ngModel)]="pName" id="selectbasic" name="planetName" class="form-control">
+              <option [value]="a" [selected]="isSelected">Select</option>
+              <option *ngFor="let name of extPlanetNames" [value]="name">{{name}}</option>
+            </select>
+          </div>
+        </div>
+
+
+        <!-- Button -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="textinput"></label>
+          <div class="col-md-4">
+            <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <div class="col-md-6 top-headlines">
+    <div class="card h-100">
+      <div class="card-body">
+        <h4 class="card-title">`
+          <a href="#">{{planetName}}</a>
+        </h4>
+        
+          <span *ngIf="signName">Sign Name: <b>{{signName}}</b></span>
+        
+      </div>
+    </div>
+  </div>
+</div>
