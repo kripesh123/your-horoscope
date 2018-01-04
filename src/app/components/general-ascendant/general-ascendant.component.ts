@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {HoroscropeService} from '../../service/horoscrope.service';
+import { HoroscropeService } from '../../service/horoscrope.service';
 @Component({
   selector: 'app-general-ascendant',
   templateUrl: './general-ascendant.component.html',
   styleUrls: ['./general-ascendant.component.css']
 })
 export class GeneralAscendantComponent implements OnInit {
-model = {
+  model = {
     'day': 0,
     'month': 0,
     'year': 0,
@@ -18,15 +18,11 @@ model = {
   };
   report: any;
   ascendant: any;
-  
-  errorMsg = {'status': '', 'msg': ''};
-  constructor(private horoscropeService: HoroscropeService) {
+  errorMsg = { 'status': '', 'msg': '' };
+  constructor(private horoscropeService: HoroscropeService) { }
 
-   }
-
-  ngOnInit() {
-  }
-onSubmit() {
+  ngOnInit() { }
+  onSubmit() {
     this.horoscropeService.getGeneralAscendantReport(this.model).subscribe(
       data => {
         this.errorMsg.msg = '';
@@ -34,9 +30,9 @@ onSubmit() {
         this.ascendant = data.ascendant;
       },
       error => {
-        if(error.status === 500) {
+        if (error.status === 500) {
           this.errorMsg.msg = 'Internal Server Error';
-        }else{
+        } else {
           this.errorMsg = JSON.parse(JSON.parse(JSON.stringify(error._body)));
         }
       }
