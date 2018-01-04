@@ -9,13 +9,15 @@ import {HoroscropeService} from './service/horoscrope.service';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { GeneralAscendantComponent } from './components/general-ascendant/general-ascendant.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    GeneralAscendantComponent
   ],
   imports: [
     BrowserModule,

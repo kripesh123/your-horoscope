@@ -5,7 +5,7 @@
       <fieldset>
 
         <!-- Form Name -->
-        <legend>Personality Report</legend>
+        <legend>General Ascendant Report</legend>
 
         <!-- Text input-->
         <div class="form-group">
@@ -49,13 +49,13 @@
       </form>
     </div>
     <div class="col-md-6 top-headlines">
+     
       <div class="card h-100">
         <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">{{spiritualLesson}}</a>
+            <h4 class="card-title">`
+              <a href="#">{{ascendant}}</a>
             </h4>
-            <p class="card-text">{{keyQuality}}</p>
-            <ul *ngFor="let report of personalityReports">
+            <ul>
               <li>{{report}}</li>
             </ul>
         </div>
