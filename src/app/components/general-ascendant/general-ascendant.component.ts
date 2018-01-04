@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {HoroscropeService} from '../../service/horoscrope.service';
-
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-general-ascendant',
+  templateUrl: './general-ascendant.component.html',
+  styleUrls: ['./general-ascendant.component.css']
 })
-export class HomeComponent implements OnInit {
-
-  model = {
+export class GeneralAscendantComponent implements OnInit {
+model = {
     'day': 0,
     'month': 0,
     'year': 0,
@@ -18,22 +16,23 @@ export class HomeComponent implements OnInit {
     'lon': 85.3206,
     'tzone': 5.75
   };
-  personalityReports: any[];
-  spiritualLesson: any;
-  keyQuality: any;
+  generalAscendantReports: any[];
+  ascendant: any;
+  
   errorMsg = {'status': '', 'msg': ''};
   constructor(private horoscropeService: HoroscropeService) {
-  }
+
+   }
+
   ngOnInit() {
   }
-
-  onSubmit() {
-    this.horoscropeService.getPersonalityReport(this.model).subscribe(
+onSubmit() {
+    this.horoscropeService.getGeneralAscendantReport(this.model).subscribe(
       data => {
         this.errorMsg.msg = '';
-        this.personalityReports = data.report;
-        this.spiritualLesson = data.spiritual_lesson;
-        this.keyQuality = data.key_quality;
+        this.generalAscendantReports = data.report;
+        this.ascendant = data.ascendant;
+        
       },
       error => {
         if(error.status === 500) {
@@ -44,7 +43,4 @@ export class HomeComponent implements OnInit {
       }
     );
   }
-
-  
-
 }
